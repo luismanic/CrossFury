@@ -1,0 +1,116 @@
+[general]
+log_level = "info"
+metrics_interval_secs = 10
+csv_flush_interval_secs = 10
+worker_threads = 7
+scanner_threads = 3
+
+[connection]
+max_ws_connections = 25
+max_subscriptions_per_connection = 50
+ping_interval_ms = 500
+reconnect_delay_base_secs = 0.5
+max_reconnect_delay_secs = 5.0
+stale_connection_timeout_ms = 30000
+force_reconnect_timeout_ms = 45000
+
+[arbitrage]
+min_profit_threshold_pct = 0.10
+max_reasonable_profit_pct = 5.0
+default_trade_size_usd = 2500.0
+default_slippage_pct = 0.001
+large_order_slippage_pct = 0.003
+max_path_length = 3
+
+[exchanges.PHEMEX]
+websocket_url = "wss://ws.phemex.com"
+maker_fee_pct = 0.1
+taker_fee_pct = 0.06
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 3
+batch_size = 10
+
+[exchanges.LBANK]
+websocket_url = "wss://www.lbkex.net/ws/V2/"
+maker_fee_pct = 0.02
+taker_fee_pct = 0.06
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 10
+batch_size = 5
+
+[exchanges.XTCOM]
+websocket_url = "wss://fstream.xt.com/ws/market"
+maker_fee_pct = 0.04
+taker_fee_pct = 0.06
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 10
+batch_size = 5
+
+[exchanges.TAPBIT]
+websocket_url = "wss://ws-openapi.tapbit.com/stream/ws"
+maker_fee_pct = 0.02
+taker_fee_pct = 0.06
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 5
+batch_size = 5
+
+[exchanges.HBIT]
+websocket_url = "wss://fapi.hibt0.com/v2/ws"
+maker_fee_pct = 0.05
+taker_fee_pct = 0.05
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 5
+batch_size = 5
+
+[exchanges.BATONEX]
+websocket_url = "wss://wsapi.batonex.com/openapi/quote/ws/v2"
+maker_fee_pct = 0.02
+taker_fee_pct = 0.07
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 5
+batch_size = 5
+
+[exchanges.COINCATCH]
+websocket_url = "wss://ws.coincatch.com/public/v1/stream"
+maker_fee_pct = 0.02
+taker_fee_pct = 0.06
+max_retries = 10
+connection_timeout_secs = 15
+ping_interval_secs = 10
+batch_size = 5
+
+[token_configs.BTC]
+price_scale = 1
+max_reasonable_profit_pct = 1.5
+max_price_variation_pct = 0.02
+slippage_factor = 0.8
+
+[token_configs.ETH]
+price_scale = 2
+max_reasonable_profit_pct = 1.8
+max_price_variation_pct = 0.025
+slippage_factor = 0.85
+
+[token_configs.SOL]
+price_scale = 3
+max_reasonable_profit_pct = 2.0
+max_price_variation_pct = 0.03
+slippage_factor = 0.9
+
+[token_configs.DOGE]
+price_scale = 7
+max_reasonable_profit_pct = 4.0
+max_price_variation_pct = 0.08
+slippage_factor = 1.0
+
+[features]
+enable_multi_hop_arbitrage = true
+enable_adaptive_slippage = true
+enable_circuit_breakers = true
+enable_simd_json = true
