@@ -1,4 +1,4 @@
-# CrossFury
+# CrossFury - Cross-Exchange Arbitrage Scanner
 
 High-performance cross-exchange arbitrage scanner for crypto markets.
 
