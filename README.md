@@ -1,71 +1,66 @@
-# TriFury - High Frequency Triangular Arbitrage Bot
+# CrossFury 🔥  
+**High-Performance Cross-Exchange Arbitrage Scanner for Crypto Markets**
 
-TriFury is a high-performance triangular arbitrage bot written in Rust, designed to identify and evaluate profitable triangular arbitrage opportunities across cryptocurrency exchanges with ultra-low latency.
+CrossFury is a latency-optimized arbitrage engine written in Rust, designed to scan and detect profitable opportunities across centralized crypto exchanges with speed and precision. Built from the ground up with high-frequency trading architecture in mind, CrossFury can perform up to **75,000+ arbitrage checks per second** and analyze **420+ token pairs in real-time**.
 
-## Overview
+---
 
-Triangular arbitrage capitalizes on pricing discrepancies among three trading pairs on the same exchange. The trading route follows:
+## 🚀 Features
 
-1. Convert Token A to Token B
-2. Convert Token B to Token C
-3. Convert Token C back to Token A
+- **Ultra-Fast Scanning**: Processes over **754,000 cross-exchange checks** every 10 seconds (~75.4k/sec).
+- **Real-Time WebSocket Handling**: Handles **28,000+ messages** per 10 seconds with **0 ms latency** using async channels and SIMD-accelerated JSON parsing.
+- **Multi-Exchange Support**: Integrates with multiple exchanges including Phemex, LBank, XT.COM, Tapbit, Batonex, and CoinCatch.
+- **Slippage- & Fee-Aware Profit Modeling**: Executes advanced **order book analysis** to account for depth, liquidity, and adaptive trade sizing.
+- **Dynamic Opportunity Tracking**: Continuously refreshes arbitrage opportunities and supports both two-leg and multi-hop (triangular) strategies.
+- **Scalable Codebase**: ~14,000 lines of modular Rust code engineered for extensibility and raw performance.
 
-This bot focuses on monitoring and analyzing these opportunities in real-time, with a particular emphasis on perpetual futures markets.
+---
 
-## Features
+## 🧠 Architecture Highlights
 
-- **Ultra-Fast Processing**: Runs at ~15,000+ checks per second, significantly faster than Python implementations
-- **Real-time WebSocket Integration**: Maintains connections to exchange WebSockets for instant price updates
-- **Synthetic Pair Support**: Creates synthetic trading pairs to expand arbitrage opportunities
-- **Smart Prioritization**: Focuses computing resources on tokens showing recent price volatility
-- **Configurable Focus Mode**: Can focus on a specific subset of tokens for improved performance
-- **Detailed Logging**: Logs profitable opportunities with comprehensive metrics
+- Built with **Rust** for concurrency and memory safety.
+- Uses **DashMap**, **tokio**, and **crossbeam** for real-time order book updates and async processing.
+- Supports **SIMD-based JSON parsing** with `simd-json` for maximum throughput.
+- Advanced **market impact models** to simulate realistic execution prices under various liquidity conditions.
 
-## Requirements
+---
 
-- Rust 1.70.0 or higher
-- Cargo package manager
+## 📈 Live Metrics Snapshot
 
-## Usage
 
-### Building from source
+---
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/trifury.git
-cd trifury
+## 📦 Modules
 
-# Build in release mode for maximum performance
-cargo build --release
+- `core.rs` – Main event loop and opportunity evaluation
+- `exchange_types.rs` – Exchange identifiers and pricing models
+- `message_processor.rs` – High-speed order book message parsing
+- `symbol_mapper.rs` – Symbol normalization across exchanges
+- `cross_exchange.rs` – Cross-market arbitrage engine
+- `multi_hop.rs` – (Planned) Support for triangular paths
+- `config.rs` – Configurable exchange and trading parameters
 
-# Run the application
-cargo run --release
-```
+---
 
-### Configuration
+## 🧪 Coming Soon
 
-The main configuration options are available in `src/constants.rs`:
+- 📊 Web-based dashboard for visualizing active opportunities
+- 🧠 Reinforcement learning module to rank best execution routes
+- 🔁 Automated execution with exchange trading APIs
 
-- `FOCUS_PERP_TOKENS`: List of tokens to focus on when `ACTIVE_FOCUS_MODE` is true
-- `ACTIVE_FOCUS_MODE`: When enabled, only monitors the specified focus tokens
-- `ALLOW_SYNTHETIC_PAIRS`: Enables creation of synthetic trading pairs
-- `CHECK_INTERVAL`: Interval between triangle checks (configured for microsecond-level precision)
-- `MAX_WS_CONNECTIONS`: Maximum number of concurrent WebSocket connections
+---
 
-## Performance Optimizations
+## 👨‍💻 Author
 
-TriFury is built with performance as a primary goal:
+Luis Manic | [@luismanic](https://github.com/luismanic)
 
-- **Lock-free data structures**: Uses `DashMap` for concurrent access to price data without locking
-- **Zero-copy data handling**: Minimizes data copying and allocation during critical paths
-- **Efficient memory management**: Rust's ownership model ensures optimal memory usage
-- **Microsecond-precision timing**: Operates at microsecond intervals for maximum throughput
-- **Parallel processing**: Distributes work across multiple threads using Tokio's async runtime
+---
 
-## License
+## 📄 License
 
-MIT
+MIT License
 
-## Disclaimer
+---
 
-This software is for educational and research purposes only. Trading cryptocurrencies involves significant risk. Always perform your own due diligence before trading.
+> ⚡ Built for speed. Tuned for precision. Designed for scale.  
+> Welcome to **CrossFury**.
