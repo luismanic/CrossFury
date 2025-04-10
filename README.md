@@ -1,5 +1,7 @@
-# CrossFury 🔥  
-**High-Performance Cross-Exchange Arbitrage Scanner for Crypto Markets**
+# CrossFury
+
+High-performance cross-exchange arbitrage scanner for crypto markets.
+
 
 CrossFury is a latency-optimized arbitrage engine written in Rust, designed to scan and detect profitable opportunities across centralized crypto exchanges with speed and precision. Built from the ground up with high-frequency trading architecture in mind, CrossFury can perform up to **75,000+ arbitrage checks per second** and analyze **420+ token pairs in real-time**.
 
